@@ -1,8 +1,14 @@
 import React from "react";
 import "./login.scss";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
 
 const Login = () => {
+  const { login } = useAuth();
+
+  const handleLogin = () => {
+    login();
+  };
   return (
     <div className="login">
       <div className="cart">

@@ -1,56 +1,77 @@
+@import "../../style.scss";
+
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  height: 50px;
-  border-bottom: 1.5px solid lightgrey;
-
-  .left {
+  @include themify($themes) {
     display: flex;
     align-items: center;
-    gap: 30px;
-    a {
-      text-decoration: none;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1.5px solid themed("border");
+    background-color: themed("bg");
+    color: themed("textColor");
+
+    position: sticky;
+    top: 0;
+
+    .left > * {
+      cursor: pointer;
     }
 
-    span {
-      font-weight: bold;
-      font-size: 20px;
-      color: darkblue;
+    .right > * {
+      cursor: pointer;
     }
 
-    .search {
+    .left {
       display: flex;
       align-items: center;
-      gap: 10px;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      padding: 5px;
-      input {
-        border: none;
-        width: 500px;
-      }
-    }
-  }
+      gap: 30px;
 
-  .right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    .user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500px;
-      img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        object-fit: contain;
+      a {
+        text-decoration: none;
       }
+
       span {
+        font-weight: bold;
+        font-size: 20px;
+        color: themed("logo");
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid themed("border");
+        border-radius: 5px;
+        padding: 5px;
+        input {
+          outline: none;
+          border: none;
+          width: 500px;
+          background-color: transparent;
+          color: themed("textColor");
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500px;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: contain;
+        }
+        span {
+        }
       }
     }
   }
